@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Rookie | Rookie AL-Bahith</title>
+    <link rel="stylesheet" href="/frontend/styles/index.css">
+</head>
+<body>
+    <!-- Header section-->
+    <header class="site-header">
+        <div class="container header-inner">
+            <!-- Logo section-->
+            <div class="logo-link">
+                <!-- <img src="/frontend/" alt="Research Rookie Logo"> -->
+            </div> 
+       
+            <!-- Search bar section-->
+            <form class="search" role="search" aria-label="Site search">
+                <!-- <label for="site-search" class="visually-hidden">Search</label> -->
+                <input id="site-search" type="search" name="q" placeholder="Search here...">
+            </form>
+
+            <!-- Login/SignUp section-->
+            <div class="auth-actions">
+                <a href="/frontend/login.html" class="btn btn-login">Log in</a>
+                <a href="/frontend/signup.html" class="btn btn-signup">Sign up</a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section-->
+         <section class="hero" role="region" aria-labeledby="hero-heading">
+                <!-- <img src="assets/image.png" alt="People collaborating on AI research" class="hero-image"> -->
+            <div class="container hero-inner">
+                <h1 id="hero-heading" class="hero-title">We &lt;3 people who research AI</h1>
+                <p class="hero-sub">
+                    Rookie AL-Bahith is a platform where newcomers to AI research can ask questions, get answers, and connect
+                    with mentors and peers. We help you grow your skills, find resources, and collaborate on real research problems.
+                </p>
+
+                <div class="hero-ctas" role="group" aria-label="Primary call to actions">
+                    <a class="btn btn-primary" href="#for-researchers">For researchers</a>
+                </div>
+            </div>
+        </section>
+
+        <! -- secondary section -->
+        <section id="for-researchers" class="for-researchers" role="region" aria-labelledby="for-researchers-heading">
+            <div class="container">
+                <h2 id="for-researchers-heading">For researchers, by researchers</h2>
+                <div class="accent-underline" aria-hidden="true"></div>
+                <p>
+                    Rookie AL-Bahith is an open community for anyone starting in AI research. We help you get answers to your
+                    toughest questions, share knowledge with your peers, and find mentors to guide your next steps. Post practical
+                    questions, show your experiments, and learn from reproducible answers.
+                </p>
+            </div>
+        </section>         
+    </main>
+
+    <!-- footer section-->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <p>&copy; 2025 Rookie AL-Bahith. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+           var y = new Date().getFullYear();
+           var el = document.getElementById('year');
+           if (el) el.textContent = y;
+         })();
+    </script>
+
+</body>
+</html>
