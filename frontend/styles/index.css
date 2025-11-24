@@ -1,0 +1,230 @@
+:root{
+  --bg-yellow: #f7c600; /* hero background */
+  --accent-orange: #e76f24; /* underline and button */
+  --text-dark: #222327;
+  --muted: #6b6b6b;
+  --white: #ffffff;
+  --container-width: 1100px;
+  --max-width: 1200px;
+}
+
+/* Reset-ish */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  color:var(--text-dark);
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  font-size:16px;
+}
+
+/* Simple container used sitewide */
+.container{
+  width:100%;
+  max-width:var(--container-width);
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* Header */
+.site-header{
+  background: #fff;
+  border-bottom:1px solid #eee;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  height:64px;
+  justify-content:space-between;
+}
+
+/* Logo */
+.logo{
+  font-weight:700;
+  color:var(--text-dark);
+  text-decoration:none;
+  font-size:1.05rem;
+  letter-spacing:0.2px;
+}
+
+/* Search (simple) */
+.search{flex:1; max-width:520px; margin:0 20px}
+.search input[type="search"]{
+  width:100%;
+  padding:8px 12px;
+  border-radius:4px;
+  border:1px solid #ddd;
+  background:#fafafa;
+  font-size:0.95rem;
+}
+
+/* Nav and auth */
+.site-nav{display:flex; gap:14px; align-items:center}
+.site-nav .nav-link{
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:600;
+  padding:6px 8px;
+  border-radius:4px;
+  transition:all .15s ease;
+}
+.site-nav .nav-link:hover{color:var(--text-dark); background:#faf7f0}
+
+.auth-actions{display:flex; gap:8px; align-items:center}
+.btn{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:4px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:0.95rem;
+  line-height:1;
+  cursor:pointer;
+  border:1px solid transparent;
+}
+.btn-login{background:transparent; color:var(--muted); border-color:#dcdcdc}
+.btn-signup{background:var(--accent-orange); color:var(--white)}
+
+/* Hero */
+.hero{
+  background:linear-gradient(0deg, var(--bg-yellow) 0%, var(--bg-yellow) 100%);
+  color:var(--text-dark);
+  padding:72px 0 56px;
+  position:relative;
+  overflow:hidden;
+  clip-path: polygon(0 0,100% 0,100% 87%,0 100%); /* angled bottom similar to screenshot */
+}
+
+.hero-inner{
+  text-align:center;
+  padding:32px 20px;
+}
+
+/* Big heading */
+.hero-title{
+  font-size:3.25rem; /* large */
+  line-height:1.02;
+  margin:0 0 18px;
+  font-weight:800;
+  letter-spacing:-0.5px;
+  color:var(--text-dark);
+  text-shadow:0 1px 0 rgba(255,255,255,0.15);
+}
+
+/* Subtext sized and narrow */
+.hero-sub{
+  max-width:760px;
+  margin:0 auto 26px;
+  color:rgba(34,35,39,0.85);
+  font-size:1.05rem;
+}
+
+/* CTA buttons in hero */
+.hero-ctas{display:inline-flex; gap:12px; align-items:center}
+.hero .btn-primary{
+  background:var(--white);
+  color:var(--accent-orange);
+  border:1px solid rgba(0,0,0,0.06);
+  padding:10px 18px;
+  border-radius:4px;
+}
+.hero .btn-primary:hover{transform:translateY(-1px)}
+.hero .btn-secondary{
+  background:var(--accent-orange);
+  color:var(--white);
+  border:1px solid rgba(0,0,0,0.06);
+  padding:10px 18px;
+  border-radius:4px;
+}
+.hero .btn-secondary:hover{opacity:0.95}
+
+/* For researchers section */
+.for-researchers{
+  background:var(--white);
+  padding:64px 0;
+  text-align:center;
+}
+
+.for-researchers h2{
+  margin:0 0 10px;
+  font-size:1.85rem;
+  font-weight:800;
+}
+
+/* small orange accent underline centered */
+.accent-underline{
+  width:80px;
+  height:8px;
+  background:var(--accent-orange);
+  border-radius:4px;
+  margin:18px auto;
+}
+
+/* paragraph */
+.for-researchers p{
+  max-width:760px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:1rem;
+  line-height:1.7;
+  margin-top:14px;
+}
+
+/* How it works list */
+.how-it-works{
+  padding:36px 0 80px;
+  background:#fff;
+}
+.features-list{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  list-style:none;
+  padding:0;
+  margin:20px auto 0;
+  flex-wrap:wrap;
+}
+.features-list li{
+  min-width:180px;
+  max-width:320px;
+  text-align:left;
+  color:var(--muted);
+}
+
+/* Footer */
+.site-footer{
+  border-top:1px solid #eee;
+  padding:18px 0;
+  background:#fff;
+  text-align:center;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  .header-inner{height:64px; gap:10px}
+  .search{display:none}
+  .hero-title{font-size:2.25rem}
+  .hero-sub{font-size:0.98rem; padding:0 8px}
+  .hero{padding:56px 0 48px}
+  .features-list{flex-direction:column; align-items:center}
+}
+
+@media (max-width:520px){
+  .header-inner{padding:0 12px}
+  .logo{font-size:1rem}
+  .hero-title{font-size:1.6rem}
+  .hero-sub{font-size:0.95rem}
+  .hero-ctas{flex-direction:column}
+  .hero .btn-primary, .hero .btn-secondary{width:200px; max-width:90%}
+  .container{padding:0 14px}
+}

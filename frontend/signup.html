@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up — Research Rookie</title>
+  <link rel="stylesheet" href="styles/signup.css"/>
+</head>
+<body>
+  
+  <main class="container" style="max-width:520px; padding:48px 20px;">
+    <h1 style="text-align:center; margin-bottom:6px;">Create an account</h1>
+    <p style="text-align:center; color:#666; margin-top:0; margin-bottom:24px;">
+      Join Research Rookie to ask questions, share experiments, and learn from other AI researchers.
+    </p>
+
+    <form action="#" method="post" class="auth-form" novalidate>
+      <div style="margin-bottom:14px;">
+        <label for="username" style="display:block; font-weight:700; margin-bottom:6px;">Username</label>
+        <input id="username" name="username" type="text" required minlength="3" maxlength="30"
+               placeholder="e.g. researchrookie" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" />
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <label for="email" style="display:block; font-weight:700; margin-bottom:6px;">Email</label>
+        <input id="email" name="email" type="email" required
+               placeholder="you@example.com" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" />
+      </div>
+
+      <div style="margin-bottom:18px;">
+        <label for="password" style="display:block; font-weight:700; margin-bottom:6px;">Password</label>
+        <input id="password" name="password" type="password" required minlength="8"
+               placeholder="Create a strong password" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px;" />
+      </div>
+
+      <div style="text-align:center; margin-top:6px;">
+        <button type="submit" class="btn btn-secondary" style="padding:10px 20px; font-size:1rem;">Sign up</button>
+      </div>
+
+      <p style="text-align:center; margin-top:18px; color:#666;">
+        Already have an account? <a href="login.html">Log in</a>
+      </p>
+    </form>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="text-align:center;">
+      <p style="margin:8px 0;">&copy; <span id="year"></span> Rookie Al‑Bahith.</p>
+    </div> 
+  </footer>
+
+  <script>
+    (function () {
+      var y = new Date().getFullYear();
+      var el = document.getElementById('year');
+      if (el) el.textContent = y;
+    })();
+  </script>
+  <script src="scripts/signup.js"></script>
+</body>
+</html>

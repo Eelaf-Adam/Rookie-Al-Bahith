@@ -1,0 +1,119 @@
+/* ========== GLOBAL STYLES ========== */
+:root {
+    --yellow: #e9b20e;
+    --orange: #f48024;
+    --dark: #2d2d2d;
+    --light-text: #555;
+    --border: #ddd;
+    --radius: 8px;
+    --bg-light: #fafafa;
+    --shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #fff;
+    color: var(--dark);
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   justify-content: center;
+} 
+
+/* ========== HEADER ========== */
+.site-header {
+    background: var(--yellow);
+    padding: 14px 0;
+    box-shadow: var(--shadow);
+}
+
+.header-inner {
+    width: 92%;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.site-nav .nav-link {
+    margin-left: 18px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* ========== MAIN CONTENT ========== */
+main {
+    margin-top: 40px;
+    background: #fff;
+}
+
+
+.auth-form {
+    background: #fff;
+    padding: 30px 26px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* Input fields */
+.auth-form input {
+    width: 100%;
+    padding: 11px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: 0.2s ease;
+}
+
+.auth-form input:focus {
+    border-color: var(--orange);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(244, 128, 36, 0.25);
+}
+
+/* Labels */
+.auth-form label {
+    font-weight: 700;
+    color: var(--dark);
+}
+
+/* ========== BUTTONS ========== */
+.btn-secondary {
+    background: var(--orange);
+    border: none;
+    padding: 10px 22px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: background 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: #d96f1b;
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+    margin-top: 60px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+
+.site-footer p {
+    color: var(--light-text);
+}
