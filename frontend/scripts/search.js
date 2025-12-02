@@ -189,7 +189,7 @@ function saveResultsToStorage(htmlContent, query, type) {
     };
      
     // this converts the object to a JSON string and save it
-    localStorage.setItem('lastSearchResult', JSON.stringify(dataToSave));
+    sessionStorage.setItem('lastSearchResult', JSON.stringify(dataToSave));
 }
 
 
@@ -197,7 +197,7 @@ function saveResultsToStorage(htmlContent, query, type) {
 
 window.addEventListener('DOMContentLoaded', () => {
     // check if we have saved data
-    const savedData = localStorage.getItem('lastSearchResult');
+    const savedData = sessionStorage.getItem('lastSearchResult');
 
     if (savedData) {
         // format JSON string into an object
