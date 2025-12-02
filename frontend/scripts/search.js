@@ -1,19 +1,19 @@
 /* The reserch lgic
-  Handles: arXiv (XML), GitHub (JSON), StackOverflow (JSON)
+ This handles these APIs arXiv (XML), GitHub (JSON), StackOverflow (JSON)
 */
 
-//  DOM elements
+//  The DOM elements
 const keywordInput = document.getElementById('keyword');
 const resourceType = document.getElementById('resource-type');
 const searchBtn = document.getElementById('search-btn');
 const resultsContainer = document.getElementById('results-container');
 
-//  Event listener
+//  The Event listener
 searchBtn.addEventListener('click', async () => {
     const query = keywordInput.value.trim();
     const type = resourceType.value;
 
-    // Validate and ensure inputs are not empty
+    // This validate and ensure inputs are not empty
     if (!query) {
         alert("Please enter a keyword to search!");
         return;
@@ -23,10 +23,10 @@ searchBtn.addEventListener('click', async () => {
         return;
     }
 
-    // Show the loading state
+    // This shows the loading state
     resultsContainer.innerHTML = `<p style="text-align:center; color:#666;">Searching ${type} for "<strong>${query}</strong>"...</p>`;
 
-    // Router and decide which API to call
+    // This handles and router and decide which API to call
     try {
         if (type === 'arxiv') {
             await fetchArxiv(query);
@@ -42,7 +42,7 @@ searchBtn.addEventListener('click', async () => {
 });
 
 
-// Display functions and creates the UI cards
+// This is for the functions and for creating the UI cards
 
 function createCard(title, link, description, source) {
     let badgeColor = '#333'; 
@@ -65,43 +65,12 @@ function createCard(title, link, description, source) {
 }
 
 
-// The API fetch function
-
-
-// --- A. arXiv API (XML Data) ---
-// async function fetchArxiv(query) {
-//     // API: http://export.arxiv.org/api/query
-//     const url = `http://export.arxiv.org/api/query?search_query=all:${query}&start=0&max_results=5`;
-
-//     const response = await fetch(url);
-//     const str = await response.text(); // arXiv returns XML, not JSON
-//     const data = new window.DOMParser().parseFromString(str, "text/xml");
-    
-//     const entries = data.querySelectorAll("entry");
-//     let html = "";
-
-//     if (entries.length === 0) {
-//         resultsContainer.innerHTML = "<p>No papers found.</p>";
-//         return;
-//     }
-
-//     entries.forEach(entry => {
-//         const title = entry.querySelector("title").textContent;
-//         const summary = entry.querySelector("summary").textContent.slice(0, 200) + "..."; // Cut summary short
-//         const link = entry.querySelector("id").textContent;
-//         html += createCard(title, link, summary, "arXiv");
-//     });
-
-//     resultsContainer.innerHTML = html;
-// }
-
-// The arXiv API (XML Data) 
+// First we have the arXiv API (uses XML data) 
 async function fetchArxiv(query) {
-    // 1. We define the target URL (changed http to https)
+    // the target URL 
     const targetUrl = `https://export.arxiv.org/api/query?search_query=all:${query}&start=0&max_results=5`;
     
-    // 2. We wrap it in a CORS proxy to bypass browser security blocks
-    // This proxy (AllOrigins) fetches the data for us and sends it back safely.
+    //  used CORS proxy for security to send the data safely
     const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
 
     try {
@@ -113,23 +82,23 @@ async function fetchArxiv(query) {
 
         const str = await response.text(); 
         
-        // 3. Parse XML to workable data
+        // turn XML to understandable data
         const data = new window.DOMParser().parseFromString(str, "text/xml");
         const entries = data.querySelectorAll("entry");
         
         let html = "";
 
-        // Check if no entries were found
+        // to check if no entries were found
         if (entries.length === 0) {
             resultsContainer.innerHTML = "<p>No arXiv papers found for this keyword.</p>";
             return;
         }
 
         entries.forEach(entry => {
-            // Use try-catch inside loop to prevent one bad entry from breaking everything
+            // use try-catch inside loop to prevent one bad entry from breaking everything
             try {
                 const title = entry.querySelector("title").textContent;
-                // Clean up the summary (it often has newlines) and cut it
+                
                 const rawSummary = entry.querySelector("summary").textContent;
                 const summary = rawSummary.replace(/\n/g, " ").slice(0, 200) + "..."; 
                 const link = entry.querySelector("id").textContent;
@@ -151,9 +120,10 @@ async function fetchArxiv(query) {
         </p>`;
     }
 }
-// --- B. GitHub API (JSON Data) ---
+
+// Second we have the GitHub API ( uses JSON Data) 
 async function fetchGithub(query) {
-    // API: https://api.github.com/search/repositories
+    // the target URL
     const url = `https://api.github.com/search/repositories?q=${query}&sort=stars&order=desc&per_page=5`;
 
     const response = await fetch(url);
@@ -166,12 +136,12 @@ async function fetchGithub(query) {
     }
 
     data.items.forEach(item => {
-        const title = item.full_name; // e.g., "facebook/react"
+        const title = item.full_name; 
         const link = item.html_url;
         const description = item.description ? item.description : "No description available.";
         const stars = ` ${item.stargazers_count} stars`;
         
-        // Combine desc + stars for the card
+        // to combine desc and stars for the card
         html += createCard(title, link, `${description} <br> <strong>${stars}</strong>`, "GitHub");
     });
 
@@ -179,9 +149,9 @@ async function fetchGithub(query) {
     saveResultsToStorage(html, query, 'GitHub');
 }
 
-// --- C. StackOverflow API (JSON Data) ---
+// Third we hav the StackOverflow API ( uses JSON Data) 
 async function fetchStackOverflow(query) {
-    // API: https://api.stackexchange.com/2.3/search
+    // the target URL
     const url = `https://api.stackexchange.com/2.3/search?order=desc&sort=relevance&intitle=${query}&site=stackoverflow`;
 
     const response = await fetch(url);
@@ -194,7 +164,7 @@ async function fetchStackOverflow(query) {
     }
 
     data.items.slice(0, 5).forEach(item => {
-        const title = item.title; // Note: Contains HTML entities sometimes
+        const title = item.title; 
         const link = item.link;
         const tags = item.tags.join(", ");
         const description = `Tags: ${tags} | Answered: ${item.is_answered ? "Yes" : "No"}`;
@@ -207,38 +177,41 @@ async function fetchStackOverflow(query) {
 }
 
 
-// Helper: Save current results to LocalStorage
+// this is a helper function to search results to LocalStorage
 function saveResultsToStorage(htmlContent, query, type) {
     const dataToSave = {
         html: htmlContent,
         query: query,
         type: type,
-        timestamp: new Date().getTime() // Optional: could be used to expire old data
+
+        // is used for expire old data
+        timestamp: new Date().getTime() 
     };
-    // Convert the object to a JSON string and save it
+     
+    // this converts the object to a JSON string and save it
     localStorage.setItem('lastSearchResult', JSON.stringify(dataToSave));
 }
 
 
-// 6. ON PAGE LOAD: RESTORE DATA
+// page load and restoring data
 
 window.addEventListener('DOMContentLoaded', () => {
-    // Check if we have saved data
+    // check if we have saved data
     const savedData = localStorage.getItem('lastSearchResult');
 
     if (savedData) {
-        // Parse the JSON string back into an object
+        // format JSON string into an object
         const parsedData = JSON.parse(savedData);
 
-        // Restore the input values so the user sees what they last searched
+        // restore the input values so the user sees what they last searched
         keywordInput.value = parsedData.query;
         resourceType.value = parsedData.type === 'GitHub' ? 'github' : 
                              parsedData.type === 'arXiv' ? 'arxiv' : 'stackoverflow';
 
-        // Restore the results
+        // restore the results
         resultsContainer.innerHTML = parsedData.html;
         
-        // Optional: Add a small note saying this is cached
+        // tell the user when they refresh the page it's restored from their last session
         const note = document.createElement('p');
         note.style.textAlign = "center";
         note.style.fontSize = "0.8rem";
