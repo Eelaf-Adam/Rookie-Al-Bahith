@@ -9,7 +9,7 @@
 }
 
 
-/* ---------- Global Reset ---------- */
+/* global reset */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +17,7 @@
     font-family: "Inter", sans-serif;
 }
 
-/* Reset-ish */
+/* reset-ish */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -31,7 +31,7 @@ body{
   font-size:16px;
 }
 
-/* Simple container used sitewide */
+/* container */
 .container{
   width:100%; 
   max-width: 1100px;
@@ -39,7 +39,7 @@ body{
   padding:0 20px;
 }
 
-/* Header */
+/* header */
 .site-header{
   background: #fff;
   border-bottom:1px solid #eee;
@@ -59,20 +59,16 @@ body{
 
 /*logo */
 .highlight {
-  /* Font Styling to match GitAnalyser */
+  /* text-based logo font */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 800; /* Extra Bold */
-  letter-spacing: -1px; /* Tighter logo feel */
-  font-size: 3rem; /* Adjust size as needed */
-
-  /* The Orange Color */
+  font-weight: 800; 
+  letter-spacing: -1px; 
+  font-size: 3rem; 
   color: #e76f24; 
-  
-  /* Layout fixes since spans are inline */
   display: inline-block;
 }
 
-/* Nav and auth */
+/* nav */
 .site-nav{display:flex; gap:14px; align-items:center}
 .site-nav .nav-link{
   color:var(--muted);
@@ -98,7 +94,7 @@ body{
 }
 .btn-about{background:var(--accent-orange); color:var(--white)}
 
-/* ---------- Search Section ---------- */
+/* search section */
 .search-container {
     width: 100%;
     text-align: center;
@@ -125,7 +121,7 @@ body{
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* Inputs */
+/* inputs label */
 .input-label {
     display: block;
     text-align: left;
@@ -148,7 +144,7 @@ input:focus, select:focus {
     border-color: #e76f24;
 }
 
-/* Search Button */
+/* search button */
 .search-btn {
     width: 100%;
     margin-top: 25px;
@@ -167,7 +163,7 @@ input:focus, select:focus {
     background: #e76f24;
 }
 
-/* ---------- Footer ---------- */
+/* footer */
 footer {
     margin-top: 60px;
     text-align: center;
