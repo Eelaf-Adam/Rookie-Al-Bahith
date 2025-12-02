@@ -1,4 +1,4 @@
-/* The reserch lgic
+/* The reserch logic
  This handles these APIs arXiv (XML), GitHub (JSON), StackOverflow (JSON)
 */
 
