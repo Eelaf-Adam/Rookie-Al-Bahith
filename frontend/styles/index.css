@@ -25,7 +25,7 @@ body{
 /* Simple container used sitewide */
 .container{
   width:100%;
-  max-width:var(--container-width);
+  max-width: 1100px;
   margin:0 auto;
   padding:0 20px;
 }
@@ -38,6 +38,7 @@ body{
   top:0;
   z-index:50;
 }
+
 .header-inner{
   display:flex;
   align-items:center;
@@ -46,25 +47,21 @@ body{
   justify-content:space-between;
 }
 
-/* Logo */
-.logo{
-  font-weight:700;
-  color:var(--text-dark);
-  text-decoration:none;
-  font-size:1.05rem;
-  letter-spacing:0.2px;
+/*logo */
+.highlight {
+  /* Font Styling to match GitAnalyser */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 800; /* Extra Bold */
+  letter-spacing: -1px; /* Tighter logo feel */
+  font-size: 3rem; /* Adjust size as needed */
+
+  /* The Orange Color */
+  color: #e76f24; 
+  
+  /* Layout fixes since spans are inline */
+  display: inline-block;
 }
 
-/* Search (simple) */
-.search{flex:1; max-width:520px; margin:0 20px}
-.search input[type="search"]{
-  width:100%;
-  padding:8px 12px;
-  border-radius:4px;
-  border:1px solid #ddd;
-  background:#fafafa;
-  font-size:0.95rem;
-}
 
 /* Nav and auth */
 .site-nav{display:flex; gap:14px; align-items:center}
@@ -90,8 +87,8 @@ body{
   cursor:pointer;
   border:1px solid transparent;
 }
-.btn-login{background:transparent; color:var(--muted); border-color:#dcdcdc}
-.btn-signup{background:var(--accent-orange); color:var(--white)}
+
+.btn-search{background:var(--accent-orange); color:var(--white)}
 
 /* Hero */
 .hero{

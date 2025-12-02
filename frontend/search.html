@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Rookie</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/frontend/styles/search.css" />
+</head>
+
+<body>
+
+
+    <header class="site-header">
+        <div class="container header-inner">
+                <span class="highlight">Rookie AL-Bahith</span>
+
+             <div class="auth-actions">
+                <a href="/index.html" class="btn btn-about">About Page</a>
+             </div>
+        </div>
+    </header>
+
+    
+
+    <!-- Search Section -->
+    <section class="search-container">
+
+        <h1>Find AI/ML Research Resources</h1>
+        <p class="subtitle">Search papers, or StackOverflow questions related to AI research.</p>
+
+        <div class="search-card">
+
+            <!-- Keyword -->
+            <label class="input-label">Keyword</label>
+            <input type="text" id="keyword" placeholder="Enter a keyword..." />
+
+            <!-- Resource Type -->
+            <label class="input-label">Resource Type</label>
+            <select id="resource-type">
+                <option value="">Select a resource type</option>
+                <option value="arxiv">ArXiv Papers</option>
+                <option value="github">GitHub Repositories</option>
+                <option value="stackoverflow">StackOverflow Post</option>
+            </select>
+
+            <!-- Search Button -->
+            <button class="search-btn" id="search-btn">Search</button>
+        </div>
+        <div id="results-container" style="margin-top: 30px; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto;"></div>
+    </section>
+
+    <!--  Footer -->
+    <footer>
+        © 2025 Rookie AL-Bahith. All rights reserved.
+    </footer>
+
+    <script src="/frontend/scripts/search.js"></script>
+
+</body>
+</html>
