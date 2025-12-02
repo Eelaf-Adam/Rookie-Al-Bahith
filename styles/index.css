@@ -48,7 +48,7 @@ body{
 }
 
 /*logo */
-.highlight {
+.logo {
   /* logo font */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 800;
@@ -181,7 +181,8 @@ body{
 
 /* responsiveness */
 @media (max-width:900px){
-  .header-inner{height:64px; gap:10px}
+  .header-inner{height:auto; padding: 10px 20px}
+  .site-nav{display: none}
   .search{display:none}
   .hero-title{font-size:2.25rem}
   .hero-sub{font-size:0.98rem; padding:0 8px}
@@ -190,12 +191,12 @@ body{
 }
 
 @media (max-width:520px){
-  .header-inner{padding:0 12px}
-  .logo{font-size:1rem}
+  .header-inner{padding:10px 14px}
+  .logo{font-size:1.7erem}
   .hero-title{font-size:1.6rem}
   .hero-sub{font-size:0.95rem}
-  .hero-ctas{flex-direction:column}
-  .hero .btn-primary, .hero .btn-secondary{width:200px; max-width:90%}
+  .hero-ctas{flex-direction:column; width: 100%}
+  .hero .btn-primary, .hero .btn-secondary{width:100px; max-width:100%; text-align: center;}
   .container{padding:0 14px}
 
 }
