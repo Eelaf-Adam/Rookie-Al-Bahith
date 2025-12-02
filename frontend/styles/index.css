@@ -8,7 +8,7 @@
   --max-width: 1200px;
 }
 
-/* Reset-ish */
+/* reset-ish */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -22,7 +22,7 @@ body{
   font-size:16px;
 }
 
-/* Simple container used sitewide */
+/* container */
 .container{
   width:100%;
   max-width: 1100px;
@@ -30,7 +30,7 @@ body{
   padding:0 20px;
 }
 
-/* Header */
+/* header */
 .site-header{
   background: #fff;
   border-bottom:1px solid #eee;
@@ -49,21 +49,16 @@ body{
 
 /*logo */
 .highlight {
-  /* Font Styling to match GitAnalyser */
+  /* logo font */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 800; /* Extra Bold */
-  letter-spacing: -1px; /* Tighter logo feel */
-  font-size: 3rem; /* Adjust size as needed */
-
-  /* The Orange Color */
+  font-weight: 800;
+  letter-spacing: -1px; 
+  font-size: 3rem;
   color: #e76f24; 
-  
-  /* Layout fixes since spans are inline */
   display: inline-block;
 }
 
-
-/* Nav and auth */
+/* nav */
 .site-nav{display:flex; gap:14px; align-items:center}
 .site-nav .nav-link{
   color:var(--muted);
@@ -90,14 +85,14 @@ body{
 
 .btn-search{background:var(--accent-orange); color:var(--white)}
 
-/* Hero */
+/* hero */
 .hero{
   background:linear-gradient(0deg, var(--bg-yellow) 0%, var(--bg-yellow) 100%);
   color:var(--text-dark);
   padding:72px 0 56px;
   position:relative;
   overflow:hidden;
-  clip-path: polygon(0 0,100% 0,100% 87%,0 100%); /* angled bottom similar to screenshot */
+  clip-path: polygon(0 0,100% 0,100% 87%,0 100%);
 }
 
 .hero-inner{
@@ -105,9 +100,9 @@ body{
   padding:32px 20px;
 }
 
-/* Big heading */
+/* heading */
 .hero-title{
-  font-size:3.25rem; /* large */
+  font-size:3.25rem; 
   line-height:1.02;
   margin:0 0 18px;
   font-weight:800;
@@ -116,7 +111,6 @@ body{
   text-shadow:0 1px 0 rgba(255,255,255,0.15);
 }
 
-/* Subtext sized and narrow */
 .hero-sub{
   max-width:760px;
   margin:0 auto 26px;
@@ -124,7 +118,7 @@ body{
   font-size:1.05rem;
 }
 
-/* CTA buttons in hero */
+/* cta buttons */
 .hero-ctas{display:inline-flex; gap:12px; align-items:center}
 .hero .btn-primary{
   background:var(--white);
@@ -143,7 +137,7 @@ body{
 }
 .hero .btn-secondary:hover{opacity:0.95}
 
-/* For researchers section */
+/* google for researchers section */
 .for-researchers{
   background:var(--white);
   padding:64px 0;
@@ -156,7 +150,7 @@ body{
   font-weight:800;
 }
 
-/* small orange accent underline centered */
+/* small orange accent */
 .accent-underline{
   width:80px;
   height:8px;
@@ -175,28 +169,7 @@ body{
   margin-top:14px;
 }
 
-/* How it works list */
-.how-it-works{
-  padding:36px 0 80px;
-  background:#fff;
-}
-.features-list{
-  display:flex;
-  gap:18px;
-  justify-content:center;
-  list-style:none;
-  padding:0;
-  margin:20px auto 0;
-  flex-wrap:wrap;
-}
-.features-list li{
-  min-width:180px;
-  max-width:320px;
-  text-align:left;
-  color:var(--muted);
-}
-
-/* Footer */
+/* footer */
 .site-footer{
   border-top:1px solid #eee;
   padding:18px 0;
@@ -206,7 +179,7 @@ body{
   font-size:0.95rem;
 }
 
-/* Responsive tweaks */
+/* responsiveness */
 @media (max-width:900px){
   .header-inner{height:64px; gap:10px}
   .search{display:none}
@@ -224,4 +197,5 @@ body{
   .hero-ctas{flex-direction:column}
   .hero .btn-primary, .hero .btn-secondary{width:200px; max-width:90%}
   .container{padding:0 14px}
+
 }
