@@ -1,34 +1,52 @@
-# Rookie AL-Bahith 🚀
+# Rookie AL-Bahith 
 
-**Rookie AL-Bahith** is an aggregated search platform designed specifically for newcomers to Artificial Intelligence research. It streamlines the research process by combining three critical resources into a single interface: academic papers, source code, and community discussions.
+**Your Google for AI Research**
 
-## 🌟 Features
-* **Multi-Source Search:** Query three different platforms simultaneously (arXiv, GitHub, Stack Overflow).
+**l-Bahith (الباحث) is the Arabic word for "The Researcher.**
+
+**Rookie AL-Bahith** is a specialized search platform designed for newcomers to Artificial Intelligence. It solves the problem of fragmented resources by allowing users to query three critical platforms—arXiv, GitHub, and Stack Overflow—from a single, intuitive interface.
+
+**Live Site:** [https://eelaf.tech](https://eelaf.tech)  
+**Demo Video:** [Watch the Demo Here](https://www.awesomescreenshot.com/video/47130910?key=b861089e6979e9d1cae541b041fd1915)
+
+
+## Key Features
+* **Multi-API Integration:** Fetches Research Papers, Source Code, and Q&A simultaneously.
 * **Smart Filtering:** Filter results by resource type (Papers, Repositories, or Q&A).
-* **Data Persistence:** Uses LocalStorage to save search results, preventing data loss on page refresh.
-* **Fallback Recommendations:** Displays curated "Seed Data" if no search history exists.
+* **Data Persistence:** Uses `sessionStorage` to save your search results, ensuring data isn't lost on page refresh.
+* **Fallback Mechanism:** Loads curated "Seed Data" if the user visits for the first time or if APIs are unreachable.
 * **Deployment:** Fully deployed on a distributed Nginx infrastructure with Load Balancing and SSL.
+* **Secure:** Fully encrypted via HTTPS (Let's Encrypt).
 
+## Architecture & Technologies
+
+### Tech Stack
+* **Frontend:** HTML5, CSS3, JavaScript (ES6+).
+* **Backend Infrastructure:** Nginx Web Servers (Ubuntu).
+* **Load Balancer:** Haproxy.
+* **Domain Management:** DNS Configuration via .tech Domain.
+
+  
 ---
 
-## 🛠️ Tech Stack & APIs Used
+## APIs Used
 This project was built using vanilla HTML5, CSS3, and JavaScript (ES6+). It relies on the following external APIs:
 
 | Service | Purpose | Documentation Link |
 | :--- | :--- | :--- |
-| **arXiv API** | To fetch scientific pre-prints and research papers. | [arXiv API Docs](https://arxiv.org/help/api) |
+| **arXiv API** | To fetch scientific pre-prints and research papers. Accessed via a CORS proxy (`allorigins.win`) to handle browser security.| [arXiv API Docs](https://arxiv.org/help/api) |
 | **GitHub REST API** | To find top-rated AI/ML repositories (sorted by stars). | [GitHub Search API](https://docs.github.com/en/rest/search) |
 | **Stack Exchange API** | To fetch relevant Q&A discussions from Stack Overflow. | [Stack Exchange API](https://api.stackexchange.com/) |
 
 ---
 
-## 💻 Part 1: Local Installation
+## Part 1: Local Installation
 
 To run this application on your local machine:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/Rookie-Al-Bahith.git](https://github.com/YOUR_USERNAME/Rookie-Al-Bahith.git)
+    git clone https://github.com/YOUR_USERNAME/Rookie-Al-Bahith.git
     ```
 
 2.  **Navigate to the project folder:**
@@ -37,16 +55,15 @@ To run this application on your local machine:
     ```
 
 3.  **Run the Application:**
-    * Simply open the `index.html` file in your preferred browser.
-    * *Recommended:* Use "Live Server" (VS Code Extension) or a simple Python server (`python3 -m http.server`) to avoid strict browser CORS policies during API testing.
+    ```bash
+     Use "Live Server" (VS Code Extension)(VS Code):** Right-click `index.html` and select "Open with Live Server".
+     ```
 
----
-
-## ☁️ Part 2: Deployment & Infrastructure
+## Part 2: Deployment & Infrastructure
 
 The application is deployed on a custom infrastructure comprising two backend web servers and one load balancer, ensuring high availability and scalability.
 
-### 🏗️ Architecture
+### Strcture
 * **Domain:** `https://eelaf.tech`
 * **Load Balancer (Lb-01):** Nginx (Reverse Proxy + SSL Termination).
 * **Web Servers (Web-01, Web-02):** Nginx (Serving Static Content).
@@ -105,3 +122,4 @@ You can verify the load balancer is distributing traffic by inspecting the HTTP 
 
 **Author:** [Your Name]
 **License:** MIT
+
