@@ -96,7 +96,7 @@ You can verify the load balancer is distributing traffic by inspecting the HTTP 
 
 ---
 
-## 🚧 Challenges & Solutions
+## Challenges & Solutions
 
 **1. CORS Errors with arXiv API**
 * *Challenge:* The browser blocked requests to the arXiv XML endpoint because it lacks CORS headers for client-side fetching.
@@ -108,11 +108,11 @@ You can verify the load balancer is distributing traffic by inspecting the HTTP 
 
 **3. Data Loss on Refresh**
 * *Challenge:* Users lost their search results if they accidentally refreshed the page.
-* *Solution:* Implemented `localStorage` logic in JavaScript. The app now saves the last search result HTML and restores it automatically upon page load.
+* *Solution:* Implemented `sessionStorage` logic in JavaScript. The app now saves the last search result HTML and restores it automatically upon page load.
 
 ---
 
-## 👏 Credits & Attribution
+## Credits & Attribution
 
 * **API Data:** Provided by [arXiv.org](https://arxiv.org), [GitHub](https://github.com), and [Stack Exchange](https://stackexchange.com).
 * **Infrastructure Reference:** Deployment configurations adapted from Nginx documentation and ALX/Holberton course materials.
@@ -120,6 +120,7 @@ You can verify the load balancer is distributing traffic by inspecting the HTTP 
 
 ---
 
-**Author:** [Your Name]
+**Author:** Eelaf Adam
 **License:** MIT
+
 
