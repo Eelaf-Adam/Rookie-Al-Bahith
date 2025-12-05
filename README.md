@@ -140,17 +140,17 @@ This project adheres to strict security best practices regarding sensitive data:
   
 ## Challenges & Solutions
 
-**1. CORS Errors with arXiv API**
-* *Challenge:* The browser blocked requests to the arXiv XML endpoint because it lacks CORS headers for client-side fetching.
-* *Solution:* I routed the requests through a CORS proxy service (`https://api.allorigins.win`) which adds the necessary Access-Control headers, allowing the data to load securely.
+**1. HAProxy SSL Compatibility**
+* *Challenge:* HAProxy requires the SSL certificate and private key to be combined into a single file, whereas Certbot generates them as separate files (fullchain.pem and privkey.pem).
+* *Solution:* I manually concatenated the certificate chain and private key into a single .pem file to enable successful SSL termination on the load balancer.
 
 **2. Nginx File Path Issues**
 * *Challenge:* After deployment, Nginx showed the default welcome page because my `index.html` was inside a subfolder, not the root.
 * *Solution:* I modified the Nginx configuration `root` directive to point explicitly to `/var/www/html/Rookie-Al-Bahith` instead of the default `/var/www/html`.
 
 **3. Data Loss on Refresh**
-* *Challenge:* Users lost their search results if they accidentally refreshed the page.
-* *Solution:* Implemented `sessionStorage` logic in JavaScript. The app now saves the last search result HTML and restores it automatically upon page load.
+* *Challenge:* After reseraching a resources then refreshing the page the serach items were gone this could make users lose their search results if they accidentally refreshed the page.
+* *Solution:* I implemented `sessionStorage` logic in JavaScript. The app now saves the last search result HTML and restores it automatically upon page load.
 
 ---
 
@@ -164,6 +164,7 @@ This project adheres to strict security best practices regarding sensitive data:
 
 **Author:** Eelaf Adam
 **License:** MIT
+
 
 
 
