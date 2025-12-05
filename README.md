@@ -162,7 +162,9 @@ This project adheres to strict security best practices regarding sensitive data:
 
 ---
 
-Rookie-Al-Bahith/
+## Project Folder Strcture
+
+```Rookie-Al-Bahith/
 │
 ├── styles/                  # CSS stylesheets
 │   ├── index.css            # Styles for the landing page 
@@ -176,9 +178,11 @@ Rookie-Al-Bahith/
 ├── README.md                # Project documentation
 ├── index.html               # Homepage (Landing page)
 └── search.html              # Search page (Where the app functionality lives)
+```
 
 **Author:** Eelaf Adam
 **License:** MIT
+
 
 
 
