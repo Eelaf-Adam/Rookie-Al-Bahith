@@ -1,6 +1,3 @@
-# System files
-.DS_Store
-Thumbs.db
 
 # Logs
 *.log
@@ -8,4 +5,5 @@ Thumbs.db
 
 # Editor settings
 .vscode/
+
 .idea/
