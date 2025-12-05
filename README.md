@@ -125,12 +125,19 @@ You can verify the load balancer is distributing traffic by inspecting the HTTP 
 **Option B**
 From your terminal:
 
-curl -I https://www.eelaf.tech
+`curl -I https://www.eelaf.tech`
 
 Run multiple times and confirm response data alternates between Web01 and Web02 instances, proving effective round-robin load balancing.
 
 ---
+## Security & API Key Handling
 
+This project adheres to strict security best practices regarding sensitive data:
+
+* **API Key Isolation:** The application is architected to utilize the **public access endpoints** of the arXiv, GitHub, and Stack Exchange APIs. No private API keys, tokens, or secrets are hardcoded in the frontend source code, completely eliminating the risk of credential leakage in the public repository.
+* **SSL/TLS Encryption:** All traffic between the client and the infrastructure is encrypted using **HTTPS** (via Let's Encrypt certificates on HAProxy). This ensures that user search queries and interactions are protected from eavesdropping.
+* **Secure CORS Handling:** To access the arXiv API (which does not natively support Cross-Origin Resource Sharing), requests are routed through a secure proxy (`api.allorigins.win`) rather than disabling browser security settings.
+  
 ## Challenges & Solutions
 
 **1. CORS Errors with arXiv API**
@@ -157,6 +164,7 @@ Run multiple times and confirm response data alternates between Web01 and Web02 
 
 **Author:** Eelaf Adam
 **License:** MIT
+
 
 
 
