@@ -164,7 +164,8 @@ This project adheres to strict security best practices regarding sensitive data:
 
 ## Project Folder Strcture
 
-```Rookie-Al-Bahith/
+```
+Rookie-Al-Bahith/
 │
 ├── styles/                  # CSS stylesheets
 │   ├── index.css            # Styles for the landing page 
@@ -182,6 +183,7 @@ This project adheres to strict security best practices regarding sensitive data:
 
 **Author:** Eelaf Adam
 **License:** MIT
+
 
 
 
