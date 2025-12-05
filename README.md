@@ -115,10 +115,19 @@ backend eelaf-backend
   ```
 
 ### Verifying Load Balancing
+
+**Option A**
 You can verify the load balancer is distributing traffic by inspecting the HTTP headers:
 1.  Open Developer Tools (F12) -> Network Tab.
 2.  Refresh `https://eelaf.tech` multiple times.
 3.  Check the **Response Headers** for `X-Served-By`. You will see it toggle between `"Web-01"` and `"Web-02"`.
+
+**Option B**
+From your terminal:
+
+curl -I https://www.eelaf.tech
+
+Run multiple times and confirm response data alternates between Web01 and Web02 instances, proving effective round-robin load balancing.
 
 ---
 
@@ -148,6 +157,7 @@ You can verify the load balancer is distributing traffic by inspecting the HTTP 
 
 **Author:** Eelaf Adam
 **License:** MIT
+
 
 
 
