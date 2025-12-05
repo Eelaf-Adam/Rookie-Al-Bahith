@@ -162,8 +162,24 @@ This project adheres to strict security best practices regarding sensitive data:
 
 ---
 
+Rookie-Al-Bahith/
+│
+├── styles/                  # CSS stylesheets
+│   ├── index.css            # Styles for the landing page 
+│   └── search.css           # Styles for the search interface and results
+│
+├── scripts/                 # JavaScript logic
+│   └── search.js            # Handles API requests, search logic, and LocalStorage
+│
+├── .gitignore               # Files to exclude from Git 
+├── LICENSE                  # MIT License
+├── README.md                # Project documentation
+├── index.html               # Homepage (Landing page)
+└── search.html              # Search page (Where the app functionality lives)
+
 **Author:** Eelaf Adam
 **License:** MIT
+
 
 
 
