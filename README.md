@@ -33,7 +33,7 @@ This project was built using vanilla HTML5, CSS3, and JavaScript (ES6+). It reli
 
 | Service | Purpose | Documentation Link |
 | :--- | :--- | :--- |
-| **arXiv API** | To fetch scientific pre-prints and research papers. Accessed via a CORS proxy (`allorigins.win`) to handle browser security.| [arXiv API Docs](https://arxiv.org/help/api) |
+| **arXiv API** | To fetch scientific pre-prints and research papers. | [arXiv API Docs](https://arxiv.org/help/api) |
 | **GitHub REST API** | To find top-rated AI/ML repositories (sorted by stars). | [GitHub Search API](https://docs.github.com/en/rest/search) |
 | **Stack Exchange API** | To fetch relevant Q&A discussions from Stack Overflow. | [Stack Exchange API](https://api.stackexchange.com/) |
 
@@ -179,6 +179,7 @@ Rookie-Al-Bahith/
 
 **Author:** Eelaf Adam
 **License:** MIT
+
 
 
 
