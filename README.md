@@ -25,7 +25,6 @@
 * **Backend Infrastructure:** Nginx Web Servers (Ubuntu).
 * **Load Balancer:** Haproxy.
 * **Domain Management:** DNS Configuration via .tech Domain.
-
   
 ---
 
@@ -59,36 +58,63 @@ To run this application on your local machine:
      Use "Live Server" (VS Code Extension)(VS Code):** Right-click `index.html` and select "Open with Live Server".
      ```
 
-## Part 2: Deployment & Infrastructure
-
+## Part 2: Deployment Instructions
 The application is deployed on a custom infrastructure comprising two backend web servers and one load balancer, ensuring high availability and scalability.
 
-### Strcture
-* **Domain:** `https://eelaf.tech`
-* **Load Balancer (Lb-01):** Nginx (Reverse Proxy + SSL Termination).
-* **Web Servers (Web-01, Web-02):** Nginx (Serving Static Content).
+The application is deployed on a 3-server infrastructure using Ubuntu 20.04.
 
-### ⚙️ Configuration Steps
+### 1. Web Servers (Web-01 & Web-02)
+Both web servers are configured to serve the static frontend files using Nginx.
 
-#### 1. Web Servers (Web-01 & Web-02)
-Both servers were configured identically to serve the static files.
-* **Step A:** Source code was transferred via `scp` to `/var/www/html/Rookie-Al-Bahith`.
-* **Step B:** Nginx configuration created at `/etc/nginx/sites-available/default-rookie`.
-* **Step C:** The `root` directive was updated to point specifically to the project folder:
-    ```nginx
-    root /var/www/html/Rookie-Al-Bahith;
+* **Step 1:** Install Nginx.
+    ```bash
+    sudo apt-get update && sudo apt-get install -y nginx
     ```
+* **Step 2:** Clone the repository.
+    ```bash
+    # Clone specific folder to web root
+    sudo git clone https://github.com/Eelaf-Adam/Rookie-Al-Bahith.git you will then see this folder strcture /var/www/html/Rookie-Al-Bahith
+    ```
+* **Step 3:** Nginx configuration created at `/etc/nginx/sites-available/default-rookie`.
+* **Step 3:** Update Nginx config to point root to `/var/www/html/Rookie-Al-Bahith`.
 * **Step D:** Custom headers were added to identify which server is handling the request (for verification):
     * Web-01: `add_header X-Served-By "Web-01";`
     * Web-02: `add_header X-Served-By "Web-02";`
+* **Step 4:** Restart Nginx.
+    ```bash
+    sudo service nginx restart
+    ```
 
-#### 2. Load Balancer (Lb-01)
-The load balancer acts as the entry point, distributing traffic via the **Round Robin** algorithm.
-* **Step A:** An `upstream` block was defined in Nginx containing the IPs of Web-01 and Web-02.
-* **Step B:** A `proxy_pass` directive forwards traffic from port 80/443 to the upstream group.
-* **Step C:** **SSL/HTTPS** was enabled using Certbot (Let's Encrypt) to secure user data.
+### 2. Load Balancer (Lb-01)
+The Load Balancer distributes traffic and handles SSL termination.
 
-### ✅ Verifying Load Balancing
+* **Step 1:** Install HAProxy.
+    ```bash
+    sudo apt-get install -y haproxy
+    ```
+* **Step 2:** Prepare SSL by combining Certbot keys into a single `.pem` file.
+    ```bash
+    cat /etc/letsencrypt/live/eelaf.tech/fullchain.pem /etc/letsencrypt/live/eelaf.tech/privkey.pem > /etc/ssl/private/eelaf-combined.pem
+    ```
+* **Step 3:** Configure `/etc/haproxy/haproxy.cfg` to use the **Round Robin** algorithm.
+
+**Configuration Snippet:**
+```haproxy
+frontend eelaf-http-in
+    bind *:80
+    redirect scheme https code 301 if !{ ssl_fc }
+
+frontend eelaf-https-in
+    bind *:443 ssl crt /etc/ssl/private/eelaf-combined.pem
+    default_backend eelaf-backend
+
+backend eelaf-backend
+    balance roundrobin
+    server web-01 3.95.151.193:80 check
+    server web-02 3.88.39.61:80 check
+  ```
+
+### Verifying Load Balancing
 You can verify the load balancer is distributing traffic by inspecting the HTTP headers:
 1.  Open Developer Tools (F12) -> Network Tab.
 2.  Refresh `https://eelaf.tech` multiple times.
@@ -122,5 +148,6 @@ You can verify the load balancer is distributing traffic by inspecting the HTTP 
 
 **Author:** Eelaf Adam
 **License:** MIT
+
 
 
